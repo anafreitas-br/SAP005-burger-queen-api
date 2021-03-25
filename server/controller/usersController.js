@@ -23,9 +23,9 @@ class UsersController {
   }
 
   static async updateUserById(req, res) {
-      const updateUsers = await req.params.id
-      // const { id } = await req.params
-      const users = await dbUsers.User.update({User: updateUsers}, {
+      const updateUsers = await req.body
+      const { id } = await req.params
+      const users = await dbUsers.User.update(updateUsers, {
        Where: {
           id: Number(id)
         }

@@ -9,4 +9,8 @@ app.get('*', (_, res) => {
   res.send('Hello World!')
 })
 
-app.listen(port);
+app.listen(port,() => {
+console.log(`Server is running on PORT ${port}`)
+})
+;
+
