@@ -26,10 +26,10 @@ class ProductsController {
       const upProducts = await req.body
       const { id } = await req.params
       const products = await dbProducts.Products.update(upProducts, {
-       Where: {
+       where: {
           id: Number(id)
         }
-       });
+      });
 
       return res.status(200).json(products);
   } 

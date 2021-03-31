@@ -14,24 +14,24 @@ class OrdersController {
       }
     })
     return res.status(200).json(orders)
-
   }
+  
   static async postOrders(req, res) {
     const newOrders = await req.body
     const orders = await dbOrders.Orders.create(newOrders);
-    return res.status(200).json(orders);
+    return res.status(201).json(orders);
   }
 
   static async updateOrdersById(req, res) {
-      const upOrders = await req.body
+      const { upOrders } =  req.body
       const { id } = await req.params
-      const orders = await dbOrders.Orders.update(upOrders, {
-       Where: {
+      const orders = await dbOrders.Orders.update({ upOrders }, {
+       where: {
           id: Number(id)
         }
        });
 
-      return res.status(200).json(orders);
+      return res.status(201).json('Pedido atualizado');
   } 
  
   static async deleteOrdersById(req, res) {
@@ -41,7 +41,7 @@ class OrdersController {
         id: Number(id)
       }
     })
-    return res.status(200).json(orders)
+    return res.status(201).json(orders)
   }
 
 }
