@@ -7,7 +7,7 @@ class UsersController {
   }
 
   static async getUserById(req, res) {
-    const { id } = await req.params
+    const { id } = req.params
     const users = await dbUsers.Users.findAll({
       where: {
         id: Number(id)
@@ -17,7 +17,7 @@ class UsersController {
 
   }
   static async postUsers(req, res) {
-    const newUsers = await req.body
+    const newUsers = req.body
     const users = await dbUsers.Users.create(newUsers);
     return res.status(200).json(users);
   }
@@ -35,7 +35,7 @@ class UsersController {
   } 
 
   static async deleteUserById(req, res) {
-    const { id } = await req.params
+    const { id } = req.params
     const users = await dbUsers.Users.destroy({
       where: {
         id: Number(id)

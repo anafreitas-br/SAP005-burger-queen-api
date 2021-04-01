@@ -14,7 +14,8 @@ module.exports = {
         references: {
           model: 'Orders',
           key: 'id'
-        }
+        },
+        onDelete: 'CASCADE'
       },
       product_id: {
         allowNull: false,
