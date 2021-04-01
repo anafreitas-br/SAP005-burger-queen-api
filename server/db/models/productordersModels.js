@@ -4,14 +4,13 @@ const {
 } = require('sequelize');
 module.exports = (sequelize, DataTypes) => {
   class ProductOrders extends Model {
-
     static associate(models) {
       ProductOrders.belongsTo(models.Orders, {
         foreignKey: 'order_id',
-        });
-        ProductOrders.belongsTo(models.Products, {
+      });
+      ProductOrders.belongsTo(models.Products, {
         foreignKey: 'product_id',
-        }); 
+      });
     }
   };
   ProductOrders.init({

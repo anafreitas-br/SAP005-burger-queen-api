@@ -23,16 +23,16 @@ class UsersController {
   }
 
   static async updateUserById(req, res) {
-      const updateUsers = req.body
-      const { id } =  req.params
-      const users =  dbUsers.Users.update(updateUsers, {
-        where: {
-          id: Number(id)
-        }
-      });
+    const updateUsers = req.body
+    const { id } = req.params
+    const users = dbUsers.Users.update(updateUsers, {
+      where: {
+        id: Number(id)
+      }
+    });
 
-      return res.status(200).json('usuário atualizado');
-  } 
+    return res.status(200).json('usuário atualizado');
+  }
 
   static async deleteUserById(req, res) {
     const { id } = req.params
@@ -41,7 +41,7 @@ class UsersController {
         id: Number(id)
       }
     })
-    return res.status(200).json( 'usuário deletado')
+    return res.status(200).json('usuário deletado')
   }
 
 }
