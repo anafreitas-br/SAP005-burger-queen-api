@@ -46,4 +46,5 @@ class UsersController {
 
 }
 
+//teste
 module.exports = UsersController

@@ -9,3 +9,5 @@ router.put('/:id', controller.updateProductsById);
 router.delete('/:id', controller.deleteProductsById);
 
 module.exports = router;
+
+//teste

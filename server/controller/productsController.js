@@ -57,6 +57,6 @@ class ProductsController {
   }
 }
 
-
+//teste
 module.exports = ProductsController
 
