@@ -291,5 +291,3 @@ module.exports = {
     queryInterface.bulkDelete('Products', null, {})
   }
 };
-
-//teste
