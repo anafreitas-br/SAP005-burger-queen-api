@@ -6,7 +6,7 @@ class ProductsController {
       const products = await dbProducts.Products.findAll();
       return res.status(200).json(products);
     } catch (error) {
-      return res.status(400).json({ error: 'Product not found' });
+      return res.status(400).json('Error: Items not found');
     }
 
   }
@@ -21,14 +21,18 @@ class ProductsController {
       });
       return res.status(200).json(productsId);
     } catch (error) {
-      return res.status(400).json({ error: "Products not found" });
+      return res.status(400).json('Error: Item not found');
     }
   }
 
   static async postProducts(req, res) {
-    const newProducts = req.body
-    const products = await dbProducts.Products.create(newProducts);
-    return res.status(200).json(products);
+    const newProducts = req.body;
+    try {
+      const products = await dbProducts.Products.create(newProducts);
+      return res.status(200).json(products);
+    } catch (error) {
+      return res.status(400).json('Error to create new items');
+    }
   }
 
   static async updateProductsById(req, res) {
@@ -57,6 +61,5 @@ class ProductsController {
   }
 }
 
-//teste
 module.exports = ProductsController
 
