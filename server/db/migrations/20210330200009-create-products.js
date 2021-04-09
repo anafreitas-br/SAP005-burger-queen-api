@@ -9,9 +9,11 @@ module.exports = {
         type: Sequelize.INTEGER
       },
       name: {
+        allowNull: false,
         type: Sequelize.STRING
       },
       price: {
+        allowNull: false,
         type: Sequelize.DOUBLE
       },
       flavor: {
@@ -27,6 +29,7 @@ module.exports = {
         type: Sequelize.STRING
       },
       sub_type: {
+        allowNull: false,
         type: Sequelize.STRING
       },
       createdAt: {

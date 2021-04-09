@@ -13,9 +13,9 @@ module.exports = {
         type: Sequelize.INTEGER,
         references: {
           model: 'Orders',
-          key: 'id'
+          key: 'id',
+          onDelete: 'CASCADE'
         },
-        onDelete: 'CASCADE'
       },
       product_id: {
         allowNull: false,
@@ -26,6 +26,7 @@ module.exports = {
         }
       },
       qtd: {
+        allowNull: false,
         type: Sequelize.INTEGER
       },
       createdAt: {
@@ -42,5 +43,3 @@ module.exports = {
     await queryInterface.dropTable('ProductOrders');
   }
 };
-
-//teste

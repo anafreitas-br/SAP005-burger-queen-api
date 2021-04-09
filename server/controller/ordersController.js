@@ -2,8 +2,27 @@ const dbOrders = require('../db/models')
 
 class OrdersController {
   static async getOrders(_, res) {
-    const orders = await dbOrders.Orders.findAll()
-    return res.status(200).json(orders);
+    try {
+      const orders = await dbOrders.Orders.findAll({
+        include: [{
+          model: dbOrders.Products,
+          as: 'products',
+          required: false,
+          attributes: ['name', 'price', 'flavor', 'complement'],
+          through: {
+            model: dbOrders.ProductOrders,
+            as: 'order list',
+            attributes: ['product_id', 'qtd'],
+          },
+        }],
+      });
+      return res.status(200).json(orders)
+    } catch (error) {
+      return res.status(401).json({
+        code:'401',
+        message:'User not authenticated'
+      });
+    }
   }
 
   static async getOrdersById(req, res) {

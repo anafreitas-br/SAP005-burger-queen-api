@@ -5,10 +5,11 @@ const {
 module.exports = (sequelize, DataTypes) => {
   class Orders extends Model {
     static associate(models) {
-      Orders.hasOne(models.ProductOrders, {
+      Orders.belongsToMany(models.Products, {
         through: 'ProductOrders',
         as: 'products',
         foreignKey: 'order_id',
+        otherKey: 'product_id'
       });
       Orders.belongsTo(models.Users, {
         foreignKey: 'user_id',

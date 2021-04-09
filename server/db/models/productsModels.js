@@ -9,6 +9,7 @@ module.exports = (sequelize, DataTypes) => {
         through: 'ProductOrders',
         as: 'orders',
         foreignKey: 'product_id',
+        otherKey: 'order_id'
       });
     }
   };
