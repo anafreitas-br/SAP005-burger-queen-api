@@ -13,19 +13,22 @@ module.exports = {
         type: Sequelize.INTEGER,
         references: {
           model: {
-            tableName: "Users"
-          },
-          key: 'id'
+            model: 'Users',
+            key: 'id'
+          }
         }
       },
       client_name: {
+        allowNull: false,
         type: Sequelize.STRING
       },
       table: {
         type: Sequelize.INTEGER
       },
       status: {
-        type: Sequelize.STRING
+        allowNull: false,
+        type: Sequelize.STRING,
+        defaultValue: 'pending'
       },
       processedAt: {
         type: Sequelize.DATE
@@ -45,4 +48,3 @@ module.exports = {
   }
 };
 
-//teste
